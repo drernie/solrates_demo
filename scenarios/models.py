@@ -12,6 +12,7 @@ class Assumptions(models.Model):
     deal_frequency_in_weeks = models.IntegerField(default=8)
     deal_latency_in_weeks = models.IntegerField(default=4)
     deal_revenue_thousands = models.IntegerField(default=5)
+    target_monthly_revenue = models.IntegerField(default=20)
 
     def __str__(self):
         return "%.2f %% growth of %i ($K) @ %i weeks + %i latency " % (
