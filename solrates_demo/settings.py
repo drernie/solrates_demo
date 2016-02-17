@@ -1,4 +1,4 @@
-"""
+"""TIME
 Django settings for solrates_demo project on Heroku. Fore more info, see:
 https://github.com/heroku/heroku-django-template
 
@@ -99,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = (
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
