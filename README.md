@@ -3,17 +3,13 @@
 Based on the [Heroku Django Starter Template https://github.com/heroku/heroku-django-template],
 an utterly fantastic project starter template for Django 1.9.
 
+This app uses simple modelling to explore possible growth scenarios.
+
 ## Deployment to Heroku
 
     $ heroku create
     $ git push heroku master
 
     $ heroku run python manage.py migrate
+    $ heroku open
 
-See also, a [ready-made application](https://github.com/heroku/python-getting-started), ready to deploy.
-
-## Further Reading
-
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
