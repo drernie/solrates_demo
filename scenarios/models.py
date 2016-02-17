@@ -12,8 +12,9 @@ class Assumptions(models.Model):
     deal_frequency_in_weeks = models.IntegerField(default=8)
     deal_latency_in_weeks = models.IntegerField(default=4)
     deal_revenue_thousands = models.IntegerField(default=5)
+
     def __str__(self):
-        return "Scenario: %.2f %% growth of %i ($K) @ %i weeks + %i latency " % (
+        return "%.2f %% growth of %i ($K) @ %i weeks + %i latency " % (
             self.installers_weekly_growth * 100,
             self.deal_revenue_thousands,
             self.deal_frequency_in_weeks,
@@ -22,8 +23,19 @@ class Assumptions(models.Model):
     
 class Weekly(models.Model):
     assumptions = models.ForeignKey(Assumptions, on_delete=models.CASCADE)
-    installers_current = models.FloatField()
-    installers_count = models.IntegerField()
-    deals_count = models.IntegerField()
-    deals_revenue = models.IntegerField()
-    deals_revenue_cumulative = models.IntegerField()
+    week_index = models.IntegerField(default=1)
+    installers_current = models.FloatField(default=0.0)
+    installers_count = models.IntegerField(default=0)
+    deals_count = models.IntegerField(default=0)
+    deals_revenue = models.IntegerField(default=0)
+    deals_revenue_cumulative = models.IntegerField(default=0)
+
+    def __str__(self):
+        return "%i: %i/%i ($K) for %i installers " % (
+            self.week_index,
+            self.deals_revenue,
+            self.deals_revenue_cumulative,
+            self.installers_count,
+        )
+
+    
