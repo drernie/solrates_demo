@@ -6,6 +6,9 @@ from django.views import generic
 class ScenariosList(generic.ListView):
     model = Assumptions
 
+class ScenariosDetail(generic.DetailView):
+    model = Assumptions
+
 def detail(request, assumptions_id):
     context = {
         'scenario': get_object_or_404(Assumptions, pk=assumptions_id),
