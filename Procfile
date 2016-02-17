@@ -1,0 +1,1 @@
+web: gunicorn solrates_demo.wsgi --log-file -
