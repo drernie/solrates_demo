@@ -8,3 +8,15 @@ class ScenariosList(generic.ListView):
 
 class ScenariosDetail(generic.DetailView):
     model = Assumptions
+
+class ScenarioCreate(generic.CreateView):
+    model = Assumptions
+    fields = [
+        'installers_start',
+        'installers_weekly_growth',
+        'deal_frequency_in_weeks',
+        'deal_latency_in_weeks',
+        'deal_revenue_thousands',
+        'target_monthly_revenue',
+    ]
+
