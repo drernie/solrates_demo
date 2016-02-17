@@ -6,11 +6,10 @@ from models import Assumptions
 
 def index(request):
     scenarios = Assumptions.objects.all()
-    template = loader.get_template('scenarios/index.html')
     context = {
         'scenarios': scenarios,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'scenarios/index.html', context)
 
 def detail(request, assumptions_id):
     a = Assumptions.objects.get(pk=assumptions_id)
