@@ -1,6 +1,20 @@
 <h1>Scenario Detail</h1>
 {{ object }}
 
+<dl>
+    <dt>Target Revenue per Month</dt>
+    <dd>{{ object.target_monthly_revenue }}</dd>
+    <dt>Target # of Deals per Month</dt>
+    <dd>{{ object.target_monthly_deals }}</dd>
+    <dt>Target # of Deals per Week</dt>
+    <dd>{{ object.target_weekly_deals }}</dd>
+    <dt>Target # of Installers</dt>
+    <dd>{{ object.target_installers }}</dd>
+    <dt>Weeks to Target (Linear Growth)</dt>
+    <dd>{{ object.linear_weeks_to_target }}</dd>
+    <dt>Weeks to Target (Exponential Growth)</dt>
+    <dd>{{ object.exponential_weeks_to_target }}</dd>
+</dl>
 <p>
 <a href="{% url 'scenarios:index' %}">Return to List</a>
 </p>
