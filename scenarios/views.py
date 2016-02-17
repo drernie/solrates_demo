@@ -8,10 +8,3 @@ class ScenariosList(generic.ListView):
 
 class ScenariosDetail(generic.DetailView):
     model = Assumptions
-
-def detail(request, assumptions_id):
-    context = {
-        'scenario': get_object_or_404(Assumptions, pk=assumptions_id),
-    }
-    return render(request, 'scenarios/detail.html', context)
-
