@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.template import loader
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from models import Assumptions
 
@@ -12,8 +11,10 @@ def index(request):
     return render(request, 'scenarios/index.html', context)
 
 def detail(request, assumptions_id):
-    a = Assumptions.objects.get(pk=assumptions_id)
-    return HttpResponse("You're looking at scenario %s." % a)
+    context = {
+        'scenario': get_object_or_404(Assumptions, pk=assumptions_id),
+    }
+    return render(request, 'scenarios/detail.html', context)
 
 def results(request, assumptions_id):
     a = Assumptions.objects.get(pk=assumptions_id)
