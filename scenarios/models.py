@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -21,6 +22,9 @@ class Assumptions(models.Model):
             self.deal_frequency_in_weeks,
             self.deal_latency_in_weeks,
         )
+    def get_absolute_url(self):
+        return reverse('scenarios:detail', kwargs={'pk': self.pk})
+
     
 class Weekly(models.Model):
     assumptions = models.ForeignKey(Assumptions, on_delete=models.CASCADE)
