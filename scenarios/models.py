@@ -13,8 +13,8 @@ class Assumptions(models.Model):
     deal_latency_in_weeks = models.IntegerField(default=4)
     deal_revenue_thousands = models.IntegerField(default=5)
     def __str__(self):
-        return "Scenario: %f growth of $(%i)K @ %i weeks + %i latency " % (
-            self.installers_weekly_growth,
+        return "Scenario: %.2f %% growth of %i ($K) @ %i weeks + %i latency " % (
+            self.installers_weekly_growth * 100,
             self.deal_revenue_thousands,
             self.deal_frequency_in_weeks,
             self.deal_latency_in_weeks,
