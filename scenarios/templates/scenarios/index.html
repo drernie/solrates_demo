@@ -1,0 +1,9 @@
+{% if scenarios %}
+    <ul>
+    {% for scenario in scenarios %}
+        <li><a href="{% url 'detail' scenario.id %}">{{ scenario }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No scenarios are available.</p>
+{% endif %}
