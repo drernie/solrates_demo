@@ -1,12 +1,16 @@
 from django.shortcuts import render
+from django.template import loader
 from django.http import HttpResponse
 from models import Assumptions
 
 
 def index(request):
     scenarios = Assumptions.objects.all()
-    output = ', '.join(["%s" % q for q in scenarios])
-    return HttpResponse(output)
+    template = loader.get_template('scenarios/index.html')
+    context = {
+        'scenarios': scenarios,
+    }
+    return HttpResponse(template.render(context, request))
 
 def detail(request, assumptions_id):
     a = Assumptions.objects.get(pk=assumptions_id)
