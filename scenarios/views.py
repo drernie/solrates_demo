@@ -4,7 +4,9 @@ from models import Assumptions
 
 
 def index(request):
-    return HttpResponse("Welcome to the SolRates Scenarios Demo.")
+    scenarios = Assumptions.objects.all()
+    output = ', '.join(["%s" % q for q in scenarios])
+    return HttpResponse(output)
 
 def detail(request, assumptions_id):
     a = Assumptions.objects.get(pk=assumptions_id)
